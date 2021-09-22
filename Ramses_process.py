@@ -19,7 +19,12 @@ def to_rename_columns(df,old_name, new_name):
     return df
 
 def calc_spectrum_coeff(df):
-    return df
+    df_coeff=df[["DateTime", "Lat", "Lon", "Pressure", "Wavelength"]]
+    E0Ez=df["Deck_int_cal"]/df["LookingUp_int_cal"]
+
+    df_coeff["Kd"]=np.log(E0Ez)/df["Pressure"]
+
+    return df_coeff
 
 
 def split_cast(df):
@@ -63,11 +68,14 @@ df.drop(indexNames , inplace=True)
 [df_downcast, df_upcast]=split_cast(df)
 [df_downcast, df_upcast]=rename_intensity(df_downcast, df_upcast)
 
+df_downcast.to_csv(r"C:\Users\TEG\PycharmProjects\log.csv", sep="\t")
 df_coeff =df_downcast.groupby(["DateTime", "Pressure"]).apply(calc_spectrum_coeff)
+df_coeff.to_csv(r"C:\Users\TEG\PycharmProjects\check.csv", sep="\t")
 
 
 
-print(df_downcast.columns.tolist())
+
+
 
 
 
