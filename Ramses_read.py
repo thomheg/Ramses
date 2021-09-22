@@ -12,7 +12,7 @@ __created__  = datetime.datetime(2021, 9, 15)
 __version__  = "1.0"
 __status__   = "Development"
 
-Directory = "//niva-of5/osl-userdata$/TEG/Documents/RANSES test data/"
+Directory = r"K:\Prosjekter\Sjøvann\KYSTOVERVÅKING ØKOKYST\KYSTOVERVÅKING ØKOKYST 2021-2025\felles\hydrografi\lysdata\NorskehavetNord VR54 VR58\VR58\VR58 2021-06-03"
 Calibration = "C:/Users/TEG/PycharmProjects/ramses/calib_trios_2021/"
 
 
